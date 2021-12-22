@@ -30,7 +30,8 @@ namespace NationalIdVerification
             #endregion create directory and result file to store validation result
 
             #region read each line in file and validate writing result in result
-            // Read file per
+            // Read file per this will lessen memory consumption 
+            // My test with the text file Used 12MB RAM and took between 9 to 10 minutes to complete the validation of the 100,007 records
             string line;
             using (var fs = File.OpenRead(filePath))
             using (var reader = new StreamReader(fs))
