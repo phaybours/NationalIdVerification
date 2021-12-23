@@ -7,8 +7,6 @@ namespace NationalIdVerification
     {
         private static void Main(string[] args)
         {
-            //string input = "34409157850";
-            //Console.WriteLine(ValidateControlDigit(input));
             string filePath = "C:\\test\\natids.txt";
             ReadFileValidateNationalID(filePath);
         }
@@ -29,17 +27,29 @@ namespace NationalIdVerification
                 File.WriteAllText(fullFilePath, String.Empty);
             #endregion create directory and result file to store validation result
 
-            #region read each line in file and validate writing result in result
+            #region read each line in file and validate writing result to result.txt
             // Read file per this will lessen memory consumption 
             // My test with the text file Used 12MB RAM and took between 9 to 10 minutes to complete the validation of the 100,007 records
+            //string line;
+            //using (var fs = File.OpenRead(filePath))
+            //using (var reader = new StreamReader(fs))
+            //    while ((line = reader.ReadLine()) != null)
+            //    {
+            //        var result = ValidateControlDigit(line);
+            //        var validationResult = $"{line} {result}";
+            //        File.AppendAllText(fullFilePath, validationResult + Environment.NewLine);
+            //    }
+
             string line;
             using (var fs = File.OpenRead(filePath))
+            using (var fw = File.OpenWrite(fullFilePath))//
+            using (var sw = new StreamWriter(fw))//
             using (var reader = new StreamReader(fs))
                 while ((line = reader.ReadLine()) != null)
                 {
                     var result = ValidateControlDigit(line);
                     var validationResult = $"{line} {result}";
-                    File.AppendAllText(fullFilePath, validationResult + Environment.NewLine);
+                    sw.WriteLine(validationResult);
                 }
 
             #endregion read each line in file and validate writing result in result
@@ -47,8 +57,9 @@ namespace NationalIdVerification
 
         private static bool ValidateControlDigit(string nId)
         {
-            if (nId.Length != 11) return false;
-            if (!char.IsDigit(nId[0])) return false;
+            if (!int.TryParse(nId, out int value) || nId.Length != 11)
+                return false;
+
             int sum = 0; int start = 1; int cLastDigit = -1;
             int lastDigit = char.IsDigit(nId[nId.Length - 1]) ? 
                 int.Parse(nId[nId.Length - 1].ToString()) :
@@ -56,14 +67,14 @@ namespace NationalIdVerification
 
             string nationId = nId.Substring(0, 10);
 
-            ComputeSum(ref sum, ref start, nationId);
+            sum = ComputeSum(start, nationId);
             int computed = sum % 11;
             if (computed < 10)
                 cLastDigit = computed;
             else
             {
                 start = 3;
-                ComputeSum(ref sum, ref start, nationId);
+                sum = ComputeSum(start, nationId);
                 computed = sum % 11;
                 cLastDigit = SetLastDigit(sum, cLastDigit, computed);
             }
@@ -83,8 +94,9 @@ namespace NationalIdVerification
             return cLastDigit;
         }
 
-        private static void ComputeSum(ref int sum, ref int start, string nationId)
+        private static int ComputeSum(int start, string nationId)
         {
+            int sum = -1;
             foreach (char c in nationId)
             {
                 int currDigit = int.Parse(c.ToString());
@@ -94,6 +106,7 @@ namespace NationalIdVerification
                 else
                     start = 1;
             }
+            return sum;
         }
     }
 }
