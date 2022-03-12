@@ -198,10 +198,28 @@ namespace NationalIdVerification
             //Console.WriteLine(output);
 
             //Get all prime factors
-            foreach(var item in AllPrimeFactors.GetAllPrimeFactors(539))
-            {
-                Console.WriteLine(item.ToString());
-            }
+            //foreach(var item in AllPrimeFactors.GetAllPrimeFactors(539))
+            //{
+            //    Console.WriteLine(item.ToString());
+            //}
+
+            //Merge two Sorted int Arrays Method1
+            //var first = new int[] { 1, 2, 3, 3, 5, 7, 9 };
+            //var second = new int[] { 2, 4, 6, 8, 10};
+            //var result = MergeTwoSortedArrays.Merge(first, second);
+            //Console.WriteLine("[{0}]", String.Join(", ", result));
+
+            //Merge two Sorted int Arrays Method2
+            //var first = new int[] { 1, 2, 3, 3, 5, 7, 9 };
+            //var second = new int[] { 2, 4, 6, 8, 10 };
+            //var result = MergeTwoSortedArrays.Merge(first, second, first.Length, second.Length);            
+            //Console.WriteLine("[{0}]", String.Join(", ", result));
+
+            //Median of two sorted arrays
+            var first = new int[] { 1, 2, 3, 3, 5, 7, 9 };
+            var second = new int[] { 2, 4, 6, 8, 10 };
+            var median = MedianOfTwoSortedArrays.FindMedian(first, second);
+            Console.WriteLine(median);
         }
     }
 }
