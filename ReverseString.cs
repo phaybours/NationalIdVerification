@@ -8,7 +8,7 @@ namespace NationalIdVerification
 {
     public static class ReverseString
     {
-        static void reverse(char[] str, int start, int end)
+        public static void reverse(char[] str, int start, int end)
         {
             // Temporary variable
             // to store character
@@ -16,7 +16,6 @@ namespace NationalIdVerification
 
             while (start <= end)
             {
-
                 // Swapping the first
                 // and last character
                 temp = str[start];
@@ -28,16 +27,14 @@ namespace NationalIdVerification
         }
 
         // Function to reverse words
-        static char[] reverseWords(char[] s)
+        public static string reverseWords(char[] s)
         {
-
             // Reversing individual words as
             // explained in the first step
 
             int start = 0;
             for (int end = 0; end < s.Length; end++)
             {
-
                 // If we see a space, we
                 // reverse the previous
                 // word (word between
@@ -55,7 +52,12 @@ namespace NationalIdVerification
 
             // Reverse the entire String
             reverse(s, 0, s.Length - 1);
-            return s;
+            return string.Join("",s);
         }
+    }
+
+    public enum SimpleList : UInt32
+    {
+
     }
 }

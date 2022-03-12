@@ -166,7 +166,7 @@ namespace NationalIdVerification
             //Console.WriteLine(nodeToFind.Value);
 
             // Binary tree Insert
-            Node newRoot = BinarySearchTree.Insert(root, 85);
+            //Node newRoot = BinarySearchTree.Insert(root, 85);
             //Console.WriteLine(root.right.right.right.Value);
 
             // BST InOrder Traversal V1
@@ -183,7 +183,25 @@ namespace NationalIdVerification
 
 
             //BST LevelOrder Traversal
-            BinarySearchTree.LevelOrderTraversal(root);
+            //BinarySearchTree.LevelOrderTraversal(root);
+
+            //Reverse Characters of Each Word In A string
+            //var input = "one  two three four five";
+            //var output1 = ReverseCharactersOfEachWord.ReverseWordInString1(input);
+            //var output2 = ReverseCharactersOfEachWord.ReverseWordInString2(input);
+            //Console.WriteLine(output1);
+            //Console.WriteLine(output2);
+
+            //Reverse Words in a string
+            //var input = "one  two three four five ";
+            //var output = ReverseString.reverseWords(input.ToCharArray());
+            //Console.WriteLine(output);
+
+            //Get all prime factors
+            foreach(var item in AllPrimeFactors.GetAllPrimeFactors(539))
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
     }
 }
