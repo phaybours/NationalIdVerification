@@ -216,10 +216,37 @@ namespace NationalIdVerification
             //Console.WriteLine("[{0}]", String.Join(", ", result));
 
             //Median of two sorted arrays
-            var first = new int[] { 1, 2, 3, 3, 5, 7, 9 };
-            var second = new int[] { 2, 4, 6, 8, 10 };
-            var median = MedianOfTwoSortedArrays.FindMedian(first, second);
-            Console.WriteLine(median);
+            //var first = new int[] { 1, 2, 3, 3, 5, 7, 9 };
+            //var second = new int[] { 2, 4, 6, 8, 10 };
+            //var median = MedianOfTwoSortedArrays.FindMedian(first, second);
+            //Console.WriteLine(median);
+
+            //var input = new List<string>
+            //{
+            //    "88 99 200", "88 99 300", "99 32 100", "12 12 15"
+            //};
+
+            //            var input = new List<string>
+            //            {
+            //                "4",
+            //"1 2 50",
+            //"1 7 70",
+            //"1 3 20",
+            //"2 2 17",
+            //"2"
+            //            };
+
+
+
+            //            var result = AmazonLog.processLogs(input, 2);
+            //            Console.WriteLine("{0}", string.Join(",", result));
+
+            var input = new List<string>
+            {
+                "1100","1110","0110","0001"
+            };
+            var result = AudibleMap.CountGroups(input);
+            Console.WriteLine(result);
         }
     }
 }
