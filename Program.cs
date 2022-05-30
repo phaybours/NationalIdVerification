@@ -149,18 +149,18 @@ namespace NationalIdVerification
             //Console.WriteLine( DeduceWord.Deduce(input));
 
             //=========================BST==========================================
-            Node root = new Node(30);
-            Node n1 = new Node(15);
-            Node n2 = new Node(45);
-            Node n3 = new Node(6);
-            Node n4 = new Node(41);
-            Node n5 = new Node(54);
+            //Node root = new Node(30);
+            //Node n1 = new Node(15);
+            //Node n2 = new Node(45);
+            //Node n3 = new Node(6);
+            //Node n4 = new Node(41);
+            //Node n5 = new Node(54);
 
-            root.left = n1;
-            root.right = n2;
-            n1.left = n3;
-            n2.left = n4;
-            n2.right = n5;
+            //root.left = n1;
+            //root.right = n2;
+            //n1.left = n3;
+            //n2.left = n4;
+            //n2.right = n5;
             // Binary Search
             //Node nodeToFind = BinarySearchTree.Search(root, 41);
             //Console.WriteLine(nodeToFind.Value);
@@ -198,10 +198,10 @@ namespace NationalIdVerification
             //Console.WriteLine(output);
 
             //Get all prime factors
-            //foreach(var item in AllPrimeFactors.GetAllPrimeFactors(539))
-            //{
-            //    Console.WriteLine(item.ToString());
-            //}
+            foreach (var item in AllPrimeFactors.GetAllPrimeFactors(15))
+            {
+                Console.WriteLine(item.ToString());
+            }
 
             //Merge two Sorted int Arrays Method1
             //var first = new int[] { 1, 2, 3, 3, 5, 7, 9 };
@@ -241,12 +241,20 @@ namespace NationalIdVerification
             //            var result = AmazonLog.processLogs(input, 2);
             //            Console.WriteLine("{0}", string.Join(",", result));
 
-            var input = new List<string>
-            {
-                "1100","1110","0110","0001"
-            };
-            var result = AudibleMap.CountGroups(input);
-            Console.WriteLine(result);
+            //var input = new List<string>
+            //{
+            //    "1100","1110","0110","0001"
+            //};
+            //var result = AudibleMap.CountGroups(input);
+            //Console.WriteLine(result);
+
+
+            ////var input = new int[] {−1, −3};
+            ////var input = new int[] { 1, 2, 3 };
+            //var input = new int[] { 1, 3, 6, 4, 1, 2 };
+            ////var res = LowestPositiveNonMember.GetValue2(input);
+            //var res = LowestPositiveNonMember.GetValue3(input);
+            //Console.WriteLine(res);
         }
     }
 }
